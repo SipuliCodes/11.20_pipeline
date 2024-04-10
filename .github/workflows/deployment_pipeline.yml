@@ -46,13 +46,12 @@ jobs:
       - name: Start server in the background
         run: npm run start:test &
 
-      - run: wait-on http://localhost:3003
-
       - name: e2e tests
         uses: cypress-io/github-action@v5
         with:
           working-directory: frontend
           command: npm run cypress:run
+          wait-on: 'http://localhost:3003'
   deployment_pipeline:
     needs: [backend_pipeline, frontend_pipeline]
     runs-on: ubuntu-22.04
