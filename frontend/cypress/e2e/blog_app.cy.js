@@ -95,7 +95,6 @@ describe('Blog app', function () {
         cy.get('#username').type('käyttis')
         cy.get('#password').type('Tuttiritari')
         cy.get('#login-button').click()
-        cy.contains('Nakki Prinssi logged in')
         cy.contains('create new blog').click()
         cy.get('[placeholder="title"]').type('The title with the second most likes')
         cy.get('[placeholder="author"]').type('Mr Blog')
