@@ -10,7 +10,7 @@
 		"preview": "vite preview",
 		"test": "jest",
 		"cypress:open": "cypress open",
-    "cypress:run": "cypress run --headed"
+    "cypress:run": "cypress run --broswer chrome"
 	},
 	"dependencies": {
 		"axios": "^1.4.0",
