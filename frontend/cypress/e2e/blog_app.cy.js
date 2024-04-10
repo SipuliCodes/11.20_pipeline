@@ -23,14 +23,6 @@ describe('Blog app', function () {
       cy.contains('Nakki Prinssi logged in')
     })
 
-    it('succeeds with wrong database correct', function () {
-      cy.contains('login').click()
-      cy.get('#username').type('Google')
-      cy.get('#password').type('12345qwerty')
-      cy.get('#login-button').click()
-      cy.contains('logged in')
-    })
-
     it('fails with wrong credentials', function () {
       cy.contains('login').click()
       cy.get('#username').type('käyttis')

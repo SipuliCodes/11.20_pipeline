@@ -48,7 +48,7 @@ jobs:
       - name: Start server in the background
         run: |
           npm install
-          npm run start &
+          node index.js &
 
       - name: e2e tests
         uses: cypress-io/github-action@v5
