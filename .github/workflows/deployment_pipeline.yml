@@ -42,6 +42,7 @@ jobs:
       - run: |
           cd frontend
           npm run test
+        
       - run: npm run start &
         background: true
       
