@@ -90,8 +90,7 @@ describe('Blog app', function () {
     })
 
     describe('When multible blogs are created', function () {
-
-      it.only('blogs are ordered by likes amount', function () {
+      beforeEach(function () {
         cy.contains('create new blog').click()
         cy.get('[placeholder="title"').type('The title with the second most likes')
         cy.get('[placeholder="author"]').type('Mr Blog')
@@ -102,6 +101,9 @@ describe('Blog app', function () {
         cy.get('[placeholder="author"]').type('Mr Blog')
         cy.get('[placeholder="url"').type('blog.com')
         cy.get('#create-button').click()
+      })
+
+      it.only('blogs are ordered by likes amount', function () {
         cy.contains('view').click()
         cy.contains('view').click()
         cy.contains('hide').click()
