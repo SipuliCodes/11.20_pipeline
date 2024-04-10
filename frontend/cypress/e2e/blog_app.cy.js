@@ -1,16 +1,13 @@
-// eslint-disable-next-line no-undef
-const PORT = process.env.PORT || 5000
-
 describe('Blog app', function () {
   beforeEach(function () {
-    cy.request('POST', 'http://localhost:' + PORT + '/api/testing/reset')
+    cy.request('POST', 'http://localhost:3003/api/testing/reset')
     const user = {
       username: 'käyttis',
       name: 'Nakki Prinssi',
       password: 'Tuttiritari'
     }
-    cy.request('POST', 'http://localhost:' + PORT + '/api/users', user)
-    cy.visit('http://localhost:' + PORT)
+    cy.request('POST', 'http://localhost:3003/api/users', user)
+    cy.visit('http://localhost:3003')
   })
 
   it('Login form is shown', function () {
@@ -82,7 +79,7 @@ describe('Blog app', function () {
           name: 'Nakke Nakuttaja',
           password: 'uttiritari'
         }
-        cy.request('POST', 'http://localhost:'+ PORT +  '/api/users', secondUser)
+        cy.request('POST', 'http://localhost:3003/api/users', secondUser)
         cy.contains('login').click()
         cy.get('#username').type('tokakäyttis')
         cy.get('#password').type('uttiritari')
