@@ -49,8 +49,8 @@ jobs:
       - run: wait-on http://localhost:5000
 
       - run: |
-        cd frontend
-        npm run cypress:run
+          cd frontend
+          npm run cypress:run
 
   deployment_pipeline:
     needs: [backend_pipeline, frontend_pipeline]
