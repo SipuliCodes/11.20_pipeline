@@ -91,10 +91,9 @@ describe('Blog app', function () {
 
     describe('When multible blogs are created', function () {
       beforeEach(function () {
-        cy.contains('login').click()
         cy.get('#username').type('käyttis')
         cy.get('#password').type('Tuttiritari')
-        cy.get('#login-button').click()
+        cy.contains('login').click()
         cy.contains('Log in')
         cy.contains('create new blog').click()
         cy.get('[placeholder="title"]').type('The title with the second most likes')
