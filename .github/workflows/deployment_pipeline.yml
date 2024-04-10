@@ -43,7 +43,8 @@ jobs:
           cd frontend
           npm run test
         
-      - run: npm run start &
+      - name: Start server
+        run: npm run start &
         background: true
       
       - run: wait-on http://localhost:5000
