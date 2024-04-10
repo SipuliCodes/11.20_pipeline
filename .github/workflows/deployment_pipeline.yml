@@ -44,9 +44,7 @@ jobs:
       - name: e2e tests
         uses: cypress-io/github-action@v5
         with:
-          command: |
-            cd frontend
-            npm run cypress:run
+          command: ./cypress_step.sh
           start: npm run start
           wait-on: http://localhost:5000
   deployment_pipeline:
