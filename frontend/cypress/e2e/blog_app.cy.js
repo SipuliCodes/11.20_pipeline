@@ -9,8 +9,8 @@ describe('Blog app', function () {
       name: 'Nakki Prinssi',
       password: 'Tuttiritari'
     }
-    cy.request('POST', 'http://localhost:3003/api/users', user)
-    cy.visit('http://localhost:3003')
+    cy.request('POST', 'http://localhost:' + PORT + '/api/users', user)
+    cy.visit('http://localhost:' + PORT)
   })
 
   it('Login form is shown', function () {
