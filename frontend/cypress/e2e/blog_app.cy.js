@@ -92,14 +92,14 @@ describe('Blog app', function () {
     describe('When multible blogs are created', function () {
       beforeEach(function () {
         cy.contains('create new blog').click()
-        cy.get('[placeholder="title"').type('The title with the second most likes')
+        cy.get('[placeholder="title"]').type('The title with the second most likes')
         cy.get('[placeholder="author"]').type('Mr Blog')
-        cy.get('[placeholder="url"').type('blog.com')
+        cy.get('[placeholder="url"]').type('blog.com')
         cy.get('#create-button').click()
         cy.contains('create new blog').click()
-        cy.get('[placeholder="title"').type('The title with the most likes')
+        cy.get('[placeholder="title"]').type('The title with the most likes')
         cy.get('[placeholder="author"]').type('Mr Blog')
-        cy.get('[placeholder="url"').type('blog.com')
+        cy.get('[placeholder="url"]').type('blog.com')
         cy.get('#create-button').click()
       })
 
