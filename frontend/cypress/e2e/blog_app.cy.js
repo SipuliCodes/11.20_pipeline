@@ -1,3 +1,6 @@
+// eslint-disable-next-line no-undef
+const PORT = process.env.PORT || 5000
+
 describe('Blog app', function () {
   beforeEach(function () {
     cy.request('POST', 'http://localhost:3003/api/testing/reset')
