@@ -55,7 +55,6 @@ jobs:
           working-directory: frontend
           command: npm run cypress:run
           wait-on: 'http://localhost:3003'
-          failOnStatusCode: false
   deployment_pipeline:
     needs: [backend_pipeline, frontend_pipeline]
     runs-on: ubuntu-22.04
