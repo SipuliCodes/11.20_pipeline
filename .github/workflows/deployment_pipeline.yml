@@ -21,6 +21,8 @@ jobs:
       - run: npm run test
   frontend_pipeline:
     runs-on: ubuntu-22.04
+    env:
+      MONGODB_URI: ${{ secrets.MONGODB_URI }}
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
