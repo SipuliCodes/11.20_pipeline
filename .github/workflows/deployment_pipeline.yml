@@ -24,6 +24,7 @@ jobs:
     env:
       MONGODB_URI: ${{ secrets.MONGODB_URI }}
       TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
+      NODE_ENV: 'test'
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
@@ -47,7 +48,7 @@ jobs:
       - name: Start server in the background
         run: |
           npm install
-          npm run start:test &
+          npm run start &
 
       - name: e2e tests
         uses: cypress-io/github-action@v5
