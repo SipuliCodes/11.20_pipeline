@@ -42,13 +42,11 @@ jobs:
       - run: |
           cd frontend
           npm run test
-      - run: |
-          ls -l
-          pwd
+      - run: export PATH=$PATH:/frontend
       - name: e2e tests
         uses: cypress-io/github-action@v5
         with:
-          command: cypress_step.sh
+          command: npm run cypress:run
           start: npm run start
           wait-on: http://localhost:5000
   deployment_pipeline:
