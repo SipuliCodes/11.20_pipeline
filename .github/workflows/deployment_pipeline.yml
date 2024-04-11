@@ -59,13 +59,8 @@ jobs:
         uses: cypress-io/github-action@v5
         with:
           working-directory: frontend
-          command: npm run cypress:run -- --record --key=${{ secrets.CYPRESS_RECORD_KEY}}
+          command: npm run cypress:run
           wait-on: 'http://localhost:3003'
-      - name: Upload test artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: cypress-videos
-          path: frontend/cypress/videos
   deployment_pipeline:
     needs: [backend_pipeline, frontend_pipeline]
     runs-on: ubuntu-22.04

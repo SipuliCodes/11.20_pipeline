@@ -7,6 +7,4 @@ export default defineConfig({
     },
   },
   defaultCommandTimeout: 6000,
-  video: true,
-  projectId: '2pzidy'
 })
