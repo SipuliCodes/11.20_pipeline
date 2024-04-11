@@ -6,7 +6,7 @@ export default defineConfig({
       // implement node event listeners here
     },
   },
-  defaultCommandTimeout: 100000,
+  defaultCommandTimeout: 6000,
   video: true,
   projectId: '2pzidy'
 })

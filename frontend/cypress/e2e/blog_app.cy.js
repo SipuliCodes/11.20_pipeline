@@ -24,8 +24,6 @@ describe('Blog app', function () {
       cy.get('#password').should('exist').type('Tuttiritari')
       cy.contains('login').click()
 
-      cy.wait(1000)
-
       cy.contains('Nakki Prinssi logged in')
     })
 
