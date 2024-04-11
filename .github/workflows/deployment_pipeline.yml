@@ -32,16 +32,20 @@ jobs:
         with:
           node-version: '20'
       
-      - run: |
+      - name: Installing packets
+        run: |
           cd frontend
           npm install
-      - run: |
+      - name: Linting
+        run: |
           cd frontend
           npm run lint
-      - run: |
+      - name: Building
+        run: |
           cd frontend
           npm run build
-      - run: |
+      - name: Testing
+        run: |
           cd frontend
           npm run test
 
