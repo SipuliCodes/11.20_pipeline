@@ -6,7 +6,9 @@ describe('Blog app', function () {
       name: 'Nakki Prinssi',
       password: 'Tuttiritari'
     }
-    cy.request('POST', 'http://localhost:3003/api/users', user)
+    cy.request('POST', 'http://localhost:3003/api/users', user).then((response) => {
+      cy.log('User created: ', response)
+    })
     cy.visit('http://localhost:3003')
   })
 
@@ -20,7 +22,7 @@ describe('Blog app', function () {
       cy.get('#username').type('käyttis')
       cy.get('#password').type('Tuttiritari')
       cy.get('#login-button').click()
-      cy.contains('Nakki Prinssi logged in')
+      cy.contains('Log in to application')
     })
 
     it('fails with wrong credentials', function () {
