@@ -19,10 +19,14 @@ describe('Blog app', function () {
   describe('Login', function () {
     it('succeeds with correct credentials', function () {
       cy.contains('login').click()
-      cy.get('#username').type('käyttis')
-      cy.get('#password').type('Tuttiritari')
-      cy.get('#login-button').click()
-      cy.contains('Log in to application')
+      cy.contains('wrong username or password')
+      cy.get('#username').should('exist').type('käyttis')
+      cy.get('#password').should('exist').type('Tuttiritari')
+      cy.contains('login').click()
+
+      cy.wait(1000)
+
+      cy.contains('Nakki Prinssi logged in')
     })
 
     it('fails with wrong credentials', function () {
