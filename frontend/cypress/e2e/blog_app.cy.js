@@ -6,8 +6,10 @@ describe('Blog app', function () {
       name: 'Nakki Prinssi',
       password: 'Tuttiritari'
     }
-    cy.request('POST', 'http://localhost:3003/api/users', user)
-    cy.visit('http://localhost:5173')
+    cy.request('POST', 'http://localhost:3003/api/users', user).then((response) => {
+      cy.log('User created: ', response)
+    })
+    cy.visit('http://localhost:3003')
   })
 
   it('Login form is shown', function () {
@@ -17,9 +19,11 @@ describe('Blog app', function () {
   describe('Login', function () {
     it('succeeds with correct credentials', function () {
       cy.contains('login').click()
-      cy.get('#username').type('käyttis')
-      cy.get('#password').type('Tuttiritari')
-      cy.get('#login-button').click()
+      cy.contains('wrong username or password')
+      cy.get('#username').should('exist').type('käyttis')
+      cy.get('#password').should('exist').type('Tuttiritari')
+      cy.contains('login').click()
+
       cy.contains('Nakki Prinssi logged in')
     })
 
@@ -92,9 +96,9 @@ describe('Blog app', function () {
     describe('When multible blogs are created', function () {
       beforeEach(function () {
         cy.contains('create new blog').click()
-        cy.get('[placeholder="title"').type('The title with the second most likes')
+        cy.get('[placeholder="title"]').type('The title with the second most likes')
         cy.get('[placeholder="author"]').type('Mr Blog')
-        cy.get('[placeholder="url"').type('blog.com')
+        cy.get('[placeholder="url"]').type('blog.com')
         cy.get('#create-button').click()
         cy.contains('create new blog').click()
         cy.get('[placeholder="title"').type('The title with the most likes')
@@ -103,7 +107,7 @@ describe('Blog app', function () {
         cy.get('#create-button').click()
       })
 
-      it.only('blogs are ordered by likes amount', function () {
+      it('blogs are ordered by likes amount', function () {
         cy.contains('view').click()
         cy.contains('view').click()
         cy.contains('hide').click()
