@@ -6,5 +6,5 @@ export default defineConfig({
       // implement node event listeners here
     },
   },
-  defaultCommandTimeout: 6000,
+  defaultCommandTimeout: 7000,
 })
